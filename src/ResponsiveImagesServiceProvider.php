@@ -18,6 +18,10 @@ class ResponsiveImagesServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views/components' => resource_path('views/vendor/responsive-images'),
         ], 'views');
 
+        $this->publishes([
+            __DIR__.'/../tests' => base_path('tests/Feature/'),
+        ], 'tests');        
+
         $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'fuelviews');
 
         Blade::component('fuelviews::responsive-images', ResponsiveImages::class);
