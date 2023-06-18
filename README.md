@@ -24,6 +24,12 @@ php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\Respon
 php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\ResponsiveImagesServiceProvider" --tag="views"
 ```
 
+## Publish tests (optional)
+
+```
+php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\ResponsiveImagesServiceProvider" --tag="tests"
+```
+
 ## Basic usage
 
 Do not forget double and single quotes `"'$value'"`
