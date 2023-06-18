@@ -1,6 +1,6 @@
 {
     "name": "fuelviews/laravel-responsiveimages",
-    "description": "Post-processed responsive images for Laravel.",
+    "description": "Post-processed responsive images blade component for Laravel.",
     "type": "library",
     "keywords": ["laravel", "responsive images"],
     "license": "MIT",
@@ -27,6 +27,11 @@
             "Fuelviews\\ResponsiveImages\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Fuelviews\\ResponsiveImages\\Tests\\": "tests"
+        }
+    },    
     "extra": {
         "branch-alias": {
             "dev-main": "0.x-dev"
