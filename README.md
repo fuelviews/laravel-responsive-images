@@ -15,19 +15,19 @@ composer require fuelviews/laravel-responsiveimages
 ## Publish config (optional)
 
 ```
-php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\ResponsiveImagesServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Fuelviews\ResponsiveImages\ResponsiveImagesServiceProvider" --tag="config"
 ```
 
 ## Publish views (optional)
 
 ```
-php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\ResponsiveImagesServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Fuelviews\ResponsiveImages\ResponsiveImagesServiceProvider" --tag="views"
 ```
 
 ## Publish tests (optional)
 
 ```
-php composer vendor:publish --provider="FuelViews\LaravelResponsiveImages\ResponsiveImagesServiceProvider" --tag="tests"
+php artisan vendor:publish --provider="Fuelviews\ResponsiveImages\ResponsiveImagesServiceProvider" --tag="tests"
 ```
 
 ## Basic usage
