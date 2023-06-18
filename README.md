@@ -1,5 +1,7 @@
 # laravel-responsiveimages
 
+Post-processed responsive images blade component for Laravel
+
 ## Process images
 
 [Process Responsive Images Script](https://github.com/fuelviews/responsiveimages)
@@ -32,8 +34,12 @@ Do not forget double and single quotes `"'$value'"`
     :imageExt="'png'"
     :imageWidth="'350'"
     :imageHeight="'167'"
-    :loading="'eager'"
-    :altText="'Alt text'"
+    :loading="''"
+    :altText="''"
     :class="''"
 />
 ```
+
+### Supported attributes
+
+[Fuelviews](https://feulviews.com)
