@@ -1,4 +1,5 @@
-<img src="{{ $imgsrc }}"
+<img
+     src="{{ $imgsrc }}"
      srcset="{{ $srcset }}"
      alt="{{ $altText }}"
      class="{{ $class }}"
