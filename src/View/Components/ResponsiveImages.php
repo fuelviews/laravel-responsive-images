@@ -22,14 +22,9 @@ class ResponsiveImages extends Component
 
     public $class;
 
-    private const DIMENSIONS = [
-        ['xs', 320],
-        ['sm', 375],
-        ['md', 768],
-        ['lg', 1024],
-        ['xl', 1500],
-        ['2xl', 1501],
-    ];
+    private $dimensions;
+
+    private $imagePath;
 
     public function __construct(
         $imageName,
@@ -47,14 +42,16 @@ class ResponsiveImages extends Component
         $this->altText = $altText;
         $this->loading = $loading;
         $this->class = $class;
+        $this->imagePath = config('responsive-images.image_path');
+        $this->dimensions = config('responsive-images.dimensions');
     }
 
     public function render(): View|Closure|string
     {
         $imageSet = [];
 
-        foreach (self::DIMENSIONS as $dimension) {
-            $src = '/img/'.$this->imageName.'-'.$dimension[0].'.'.'webp';
+        foreach ($this->dimensions as $dimension) {
+            $src = asset($this->imagePath.$this->imageName.'-'.$dimension[0].'.'.'webp');
             $descriptor = $dimension[1].'w';
             $imageSet[] = "{$src} {$descriptor}";
         }
@@ -62,7 +59,7 @@ class ResponsiveImages extends Component
         $srcset = implode(', ', $imageSet);
 
         return view('fuelviews::responsive-images', [
-            'imgsrc' => '/img/'.$this->imageName.'-'.self::DIMENSIONS[1][0].'.'.$this->imageExt,
+            'imgsrc' => asset($this->imagePath.$this->imageName.'-'.$this->dimensions[1][0].'.'.$this->imageExt),
             'srcset' => $srcset,
             'altText' => $this->altText,
             'class' => $this->class,
