@@ -9,7 +9,7 @@ Post-processed responsive images blade component for Laravel
 ## Install package
 
 ```
-composer require fuelviews/laravel-responsiveimages
+php composer require fuelviews/laravel-responsiveimages
 ```
 
 ## Publish config (optional)
@@ -46,6 +46,6 @@ Do not forget double and single quotes `"'$value'"`
 />
 ```
 
-### Supported attributes
+### Brought to you by...
 
 [Fuelviews](https://feulviews.com)
