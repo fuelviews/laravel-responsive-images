@@ -7,3 +7,4 @@
      height="{{  $imageHeight }}"
      loading="{{ $loading }}"
 >
+{{ $slot }}
