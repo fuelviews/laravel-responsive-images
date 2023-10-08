@@ -6,6 +6,10 @@ Post-processed responsive images blade component for Laravel
 
 [Process Responsive Images Script](https://github.com/fuelviews/responsiveimages)
 
+## Copy images
+
+Copy processed images into the public/images/ directory
+
 ## Install package
 
 ```
@@ -46,6 +50,4 @@ Do not forget double and single quotes `"'$value'"`
 />
 ```
 
-### Brought to you by...
-
-[Fuelviews](https://feulviews.com)
+### [Fuelviews](https://feulviews.com)
