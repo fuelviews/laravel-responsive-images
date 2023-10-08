@@ -1,10 +1,11 @@
 <img
-     src="{{ $imgsrc }}"
-     srcset="{{ $srcset }}"
-     alt="{{ $altText }}"
-     class="{{ $class }}"
-     width="{{ $imageWidth }}"
-     height="{{  $imageHeight }}"
-     loading="{{ $loading }}"
+        src="{{ $imgsrc }}"
+        srcset="{{ $srcset }}"
+        {{ $attributes->merge([
+            'alt' => $altText,
+            'loading' => $loading,
+            'width' => $imageWidth,
+            'height' => $imageHeight
+            ]) }}
 >
 {{ $slot }}

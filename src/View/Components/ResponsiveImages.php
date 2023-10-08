@@ -10,7 +10,7 @@ class ResponsiveImages extends Component
 {
     public $imageName;
 
-    public $imageExt;
+    private $imageExt;
 
     public $imageWidth;
 
@@ -27,21 +27,18 @@ class ResponsiveImages extends Component
     private $imagePath;
 
     public function __construct(
-        $imageName,
-        $imageExt,
-        $imageWidth,
-        $imageHeight,
-        $altText,
+        $image,
+        $imageWidth = '300',
+        $imageHeight = '200',
+        $altText = 'Alt text',
         $loading = 'lazy',
-        $class = 'w-full'
     ) {
-        $this->imageName = $imageName;
-        $this->imageExt = $imageExt;
+        $this->imageName = $image;
+        $this->imageExt = pathinfo($this->imagePath . $this->imageName, PATHINFO_EXTENSION);
         $this->imageWidth = $imageWidth;
         $this->imageHeight = $imageHeight;
         $this->altText = $altText;
         $this->loading = $loading;
-        $this->class = $class;
         $this->imagePath = config('responsive-images.image_path');
         $this->dimensions = config('responsive-images.dimensions');
     }
@@ -51,7 +48,7 @@ class ResponsiveImages extends Component
         $imageSet = [];
 
         foreach ($this->dimensions as $dimension) {
-            $src = asset($this->imagePath.$this->imageName.'-'.$dimension[0].'.'.'webp');
+            $src = asset($this->imagePath . pathinfo($this->imageName, PATHINFO_FILENAME) . '-' . $dimension[0] . '.webp');
             $descriptor = $dimension[1].'w';
             $imageSet[] = "{$src} {$descriptor}";
         }
@@ -59,10 +56,9 @@ class ResponsiveImages extends Component
         $srcset = implode(', ', $imageSet);
 
         return view('fuelviews::responsive-images', [
-            'imgsrc' => asset($this->imagePath.$this->imageName.'-'.$this->dimensions[1][0].'.'.$this->imageExt),
+            'imgsrc' => asset($this->imagePath . pathinfo($this->imageName, PATHINFO_FILENAME) . '-' . $this->dimensions[1][0] . '.' . $this->imageExt),
             'srcset' => $srcset,
             'altText' => $this->altText,
-            'class' => $this->class,
             'imageWidth' => $this->imageWidth,
             'imageHeight' => $this->imageHeight,
             'loading' => $this->loading,
