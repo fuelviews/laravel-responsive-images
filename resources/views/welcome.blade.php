@@ -1,9 +1,1 @@
-<x-fuelviews::responsive-images
-    :imageName="'logo'"
-    :imageExt="'png'"
-    :imageWidth="'350'"
-    :imageHeight="'167'"
-    :loading="''"
-    :altText="''"
-    :class="''"
-/>
+<x-fuelviews::responsive-images image="logo.png" class="h-96 w-auto" />
