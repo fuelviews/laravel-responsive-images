@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'image_path' => 'img/',
+    'image_path' => 'images/',
     'dimensions' => [
         ['xs', 320],
         ['sm', 375],
