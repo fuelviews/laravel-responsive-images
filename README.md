@@ -2,15 +2,15 @@
 
 Post-processed responsive images blade component for Laravel
 
-## Process images
+## 1. Process images
 
 [Process Responsive Images Script](https://github.com/fuelviews/responsiveimages)
 
-## Copy images
+## 2. Copy images
 
 Copy processed images into the public/images/ directory
 
-## Install package
+## 3. Install package
 
 ```
 composer require fuelviews/laravel-responsiveimages
