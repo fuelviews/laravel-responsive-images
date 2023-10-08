@@ -9,7 +9,7 @@ Post-processed responsive images blade component for Laravel
 ## Install package
 
 ```
-php composer require fuelviews/laravel-responsiveimages
+composer require fuelviews/laravel-responsiveimages
 ```
 
 ## Publish config (optional)
