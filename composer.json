@@ -1,5 +1,5 @@
 {
-    "name": "fuelviews/laravel-responsiveimages",
+    "name": "fuelviews/laravel-responsive-images",
     "description": "Post-processed responsive images blade component for Laravel.",
     "type": "library",
     "keywords": ["laravel", "responsive images"],

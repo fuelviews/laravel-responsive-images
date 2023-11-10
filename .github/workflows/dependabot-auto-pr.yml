@@ -3,7 +3,7 @@ name: Dependabot auto pr merge
 on:
   push:
   pull_request:
-    types: [ opened ]
+    types: [opened]
     branches:
       - main
 
