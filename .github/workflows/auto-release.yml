@@ -1,7 +1,6 @@
 name: Auto Tag and Release
 
 on:
-  push:
   pull_request:
     types: [closed]
     branches:
