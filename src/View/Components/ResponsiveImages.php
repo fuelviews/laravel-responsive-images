@@ -5,33 +5,27 @@ namespace Fuelviews\ResponsiveImages\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Request;
 
 class ResponsiveImages extends Component
 {
     public $imageName;
-
     private $imageExt;
-
     public $imageWidth;
-
     public $imageHeight;
-
     public $altText;
-
     public $loading;
-
     public $class;
-
     private $dimensions;
-
     private $imagePath;
+    private $supportsWebp;
 
     public function __construct(
         $image,
-        $imageWidth = '300',
-        $imageHeight = '200',
-        $altText = 'Alt text',
-        $loading = 'lazy',
+        $imageWidth = '',
+        $imageHeight = '',
+        $altText = '',
+        $loading = 'lazy'
     ) {
         $this->imageName = $image;
         $this->imageExt = pathinfo($this->imagePath . $this->imageName, PATHINFO_EXTENSION);
@@ -41,6 +35,9 @@ class ResponsiveImages extends Component
         $this->loading = $loading;
         $this->imagePath = config('responsive-images.image_path');
         $this->dimensions = config('responsive-images.dimensions');
+
+        // Detect WebP support
+        $this->supportsWebp = strpos(Request::header('Accept'), 'image/webp') !== false;
     }
 
     public function render(): View|Closure|string
@@ -48,7 +45,9 @@ class ResponsiveImages extends Component
         $imageSet = [];
 
         foreach ($this->dimensions as $dimension) {
-            $src = asset($this->imagePath . pathinfo($this->imageName, PATHINFO_FILENAME) . '-' . $dimension[0] . '.webp');
+            $filename = pathinfo($this->imageName, PATHINFO_FILENAME);
+            $extension = $this->supportsWebp ? 'webp' : $this->imageExt;
+            $src = asset($this->imagePath . $filename . '-' . $dimension[0] . '.' . $extension);
             $descriptor = $dimension[1].'w';
             $imageSet[] = "{$src} {$descriptor}";
         }
