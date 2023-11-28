@@ -47,7 +47,7 @@ class ResponsiveImages extends Component
         foreach ($this->dimensions as $dimension) {
             $filename = pathinfo($this->imageName, PATHINFO_FILENAME);
             $extension = $this->supportsWebp ? 'webp' : $this->imageExt;
-            $src = asset($this->imagePath . $filename . '-' . $dimension[0] . '.' . $extension);
+            $src = secure_asset($this->imagePath . $filename . '-' . $dimension[0] . '.' . $extension);
             $descriptor = $dimension[1].'w';
             $imageSet[] = "{$src} {$descriptor}";
         }
@@ -55,7 +55,7 @@ class ResponsiveImages extends Component
         $srcset = implode(', ', $imageSet);
 
         return view('fuelviews::responsive-images', [
-            'imgsrc' => asset($this->imagePath . pathinfo($this->imageName, PATHINFO_FILENAME) . '-' . $this->dimensions[1][0] . '.' . $this->imageExt),
+            'imgsrc' => secure_asset($this->imagePath . pathinfo($this->imageName, PATHINFO_FILENAME) . '-' . $this->dimensions[1][0] . '.' . $this->imageExt),
             'srcset' => $srcset,
             'altText' => $this->altText,
             'imageWidth' => $this->imageWidth,
